@@ -23,16 +23,6 @@ class InstallCommand extends Command
     protected $description = '安裝設定的軟體清單';
 
     protected $software_list = [
-        'cli' => [
-            'commands' => [
-                [
-                    'name' => 'Homebrew',
-                    'command' => ['/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'],
-                    'options' => []
-
-                ]
-            ]
-        ],
         'brew' => [
             'depends' => ['brew'],
             'commands' => [
@@ -40,6 +30,7 @@ class InstallCommand extends Command
                     'name' => 'install casks',
                     'command' => [
                         'font-cascadia-code-pl',
+                        'php',
                         'postman',
                         'telegram',
                         '1password',
@@ -56,7 +47,7 @@ class InstallCommand extends Command
                 ],
                 [
                     'name' => 'install',
-                    'command' => ['tlrc', 'git', 'eza', 'fzf', 'orbstack', 'go', 'jq', 'git'],
+                    'command' => ['tlrc', 'git', 'eza', 'fzf', 'go', 'jq', 'git'],
                     'options' => []
                 ],
             ]

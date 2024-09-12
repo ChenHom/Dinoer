@@ -1,0 +1,11 @@
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o install.sh
+
+if /bin/bash install.sh; then
+    brew install orbstack php
+else
+    echo ""
+    echo "Homebrew install.sh failed or was canceled. Aborting brew install."
+fi
+
+rm install.sh
+
