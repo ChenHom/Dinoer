@@ -13,7 +13,7 @@ rm install.sh
 # start orb
 orb
 
-curl -fsSL https://github.com/ChenHom/Dinoer/releases/latest/download/dinoer -o dioner
+curl -fsSL https://github.com/ChenHom/Dinoer/releases/latest/download/dinoer -o dinoer
 
 # 
 docker run --rm \
