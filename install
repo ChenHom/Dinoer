@@ -9,3 +9,16 @@ fi
 
 rm install.sh
 
+
+# start orb
+orb
+
+curl https://github.com/ChenHom/Dinoer/releases/download/latest/dinoer 
+
+# 
+docker run --rm \
+    --pull=always \
+    -v "$(pwd)":/opt \
+    -w /opt \
+    laravelsail/php83-composer:latest \
+    bash -c "./dinoer"
