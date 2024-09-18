@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 1  # 只拉取最近一次提交
+          tags: true      # 拉取所有標籤
 
       - name: Set up Git
         run: |
