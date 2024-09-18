@@ -4,7 +4,7 @@ name: Build and Release Laravel Zero Application
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - 'v*'
 
 jobs:
   build:
