@@ -15,12 +15,13 @@ orb
 
 curl -fsSL https://github.com/ChenHom/Dinoer/releases/latest/download/dinoer -o dinoer
 
-chmod +x dinoer
+/bin/bash dinoer install
 
 # 
-docker run --rm \
-    --pull=always \
-    -v "$(pwd)":/opt \
-    -w /opt \
-    laravelsail/php83-composer:latest \
-    bash -c "./dinoer install"
+
+# docker run --rm \
+#    --pull=always \
+#    -v "$(pwd)":/opt \
+#    -w /opt \
+#    laravelsail/php83-composer:latest \
+#    bash -c "./dinoer install"
