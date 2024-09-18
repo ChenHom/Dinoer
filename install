@@ -23,4 +23,4 @@ docker run --rm \
     -v "$(pwd)":/opt \
     -w /opt \
     laravelsail/php83-composer:latest \
-    bash -c "./dinoer"
+    bash -c "./dinoer install"
