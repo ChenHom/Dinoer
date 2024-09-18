@@ -1,4 +1,3 @@
-
 name: Auto Tag
 
 on:
@@ -19,12 +18,30 @@ jobs:
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
 
+      - name: Get the latest tag
+        id: get_latest_tag
+        run: |
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+          echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
+
       - name: Get the current version
         id: get_version
-        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
+        run: |
+          VERSION=$(cat VERSION)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Check if new tag is needed
+        id: check_tag
+        run: |
+          if [ "v${{ env.VERSION }}" == "${{ env.LATEST_TAG }}" ]; then
+            echo "No new tag needed"
+            exit 0
+          else
+            echo "New tag needed"
+          fi
 
       - name: Create new tag
-        id: tag
+        if: steps.check_tag.outcome == 'success'
         run: |
           NEW_TAG="v${{ env.VERSION }}"
           git tag $NEW_TAG
