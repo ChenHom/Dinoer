@@ -94,8 +94,9 @@ class InstallCommand extends Command
 
             if ($installed_depend) {
                 foreach ($commands['commands'] as $command) {
+                    dump($software_name, $command['name']);
                     $this->info("{$software_name} - 安裝 {$command['name']}...");
-                    Process::command($this->runner($software_name) . $command['command'])
+                    Process::command($this->runner($software_name) . implode(' ', $command['command']))
                         ->timeout(3600)
                         ->start(output: function ($type, $buffer) {
                             $this->output->write($buffer);

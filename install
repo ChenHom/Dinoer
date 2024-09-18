@@ -1,18 +1,21 @@
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o install.sh
 
 if /bin/bash install.sh; then
-    brew install orbstack php
 
 echo ''
 echo 'Running install..'
 echo ''
 
+    brew install orbstack php
+
     # start orb
     orb
 
-    curl -fsSL https://github.com/ChenHom/Dinoer/releases/latest/download/dinoer -o dinoer
+    curl -fsSL https://github.com/ChenHom/Dinoer/releases/latest/download/dinoer -o dinoer1
 
-   /bin/bash dinoer install
+    chmod +x dinoer1
+
+    ./dinoer1 install
 
 else
     echo ""
