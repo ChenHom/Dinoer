@@ -2,20 +2,22 @@ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o
 
 if /bin/bash install.sh; then
     brew install orbstack php
+
+    rm install.sh
+
+
+# start orb
+    orb
+
+    curl -fsSL https://github.com/ChenHom/Dinoer/releases/latest/download/dinoer -o dinoer
+
+   /bin/bash dinoer install
+
 else
     echo ""
     echo "Homebrew install.sh failed or was canceled. Aborting brew install."
 fi
 
-rm install.sh
-
-
-# start orb
-orb
-
-curl -fsSL https://github.com/ChenHom/Dinoer/releases/latest/download/dinoer -o dinoer
-
-/bin/bash dinoer install
 
 # 
 
