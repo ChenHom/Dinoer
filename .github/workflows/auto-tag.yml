@@ -1,0 +1,32 @@
+
+name: Auto Tag
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+
+      - name: Get the current version
+        id: get_version
+        run: echo ::set-output name=version::$(cat VERSION)
+
+      - name: Create new tag
+        id: tag
+        run: |
+          NEW_TAG="v${{ steps.get_version.outputs.version }}"
+          git tag $NEW_TAG
+          git push origin $NEW_TAG
+
