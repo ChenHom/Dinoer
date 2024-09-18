@@ -83,7 +83,8 @@ class InstallCommand extends Command
 
             if ($depend = data_get($commands, 'depends')) {
                 foreach ($depend as $dep) {
-                    if (Process::command("which {$dep}")->run()->exitCode()) {
+                    $installedDepend = !Process::command("which {$dep}")->run()->exitCode();
+                    if ($installedDepend) {
                         $this->error("{$dep} 未安裝，請先安裝");
                         $installed_depend = false;
                         break;
