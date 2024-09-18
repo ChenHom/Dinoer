@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Git
         run: |
@@ -21,12 +21,14 @@ jobs:
 
       - name: Get the current version
         id: get_version
-        run: echo ::set-output name=version::$(cat VERSION)
+        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
 
       - name: Create new tag
         id: tag
         run: |
-          NEW_TAG="v${{ steps.get_version.outputs.version }}"
+          NEW_TAG="v${{ env.VERSION }}"
           git tag $NEW_TAG
           git push origin $NEW_TAG
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
