@@ -47,6 +47,7 @@ jobs:
             echo "New tag needed"
             echo "NEW_TAG=v${{ env.VERSION }}" >> $GITHUB_ENV
             echo "TAG_NEEDED=true" >> $GITHUB_ENV
+          fi
 
       - name: Create new tag
         if: env.TAG_NEEDED == 'true'
