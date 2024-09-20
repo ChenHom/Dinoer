@@ -40,6 +40,8 @@ jobs:
           path: builds/dinoer
 
   release:
+    permissions:
+      contents: write
     needs: build
     runs-on: ubuntu-latest
 
