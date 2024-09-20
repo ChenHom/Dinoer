@@ -51,6 +51,9 @@ jobs:
         with:
           name: build-artifacts
 
+      - name: List files for debugging
+        run: ls -alh builds/
+
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1.1.4
