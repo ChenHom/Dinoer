@@ -11,11 +11,11 @@ echo ''
     # start orb
     orb
 
-    curl -fsSL https://github.com/ChenHom/Dinoer/releases/latest/download/dinoer -o dinoer1
+    curl -fsSL https://github.com/ChenHom/Dinoer/releases/latest/download/dinoer -o dinoer
 
-    chmod +x dinoer1
+    chmod +x dinoer
 
-    ./dinoer1 install
+    ./dinoer install
 
 else
     echo ""
@@ -24,12 +24,3 @@ fi
 
 
 rm install.sh
-
-# 
-
-# docker run --rm \
-#    --pull=always \
-#    -v "$(pwd)":/opt \
-#    -w /opt \
-#    laravelsail/php83-composer:latest \
-#    bash -c "./dinoer install"
