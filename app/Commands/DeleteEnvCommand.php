@@ -9,7 +9,7 @@ class DeleteEnvCommand extends Command
 {
     use EnvTrait;
 
-    protected $signature = 'env:delete {key}';
+    protected $signature = 'env:del {key}';
     protected $description = '刪除一個環境變數';
 
     public function handle()
